@@ -38,3 +38,44 @@ describe("Get repeated words from paragraph", () => {
     console.log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
   })
 })
+
+describe("Get repeated words from sentence", () => {
+  it("should return repeated words array from sentence", () => {
+    
+    let input ="e e e e DDD ddd DdD: ddd ddd aa aA Aa, bb cc cC e e e";
+        
+        const words = RepeatedWords(input);
+        expect(words.length).to.equal(3);
+        expect(words[0],`first word: ${words[0]}`).to.equal("e");
+        expect(words[1],`second word: ${words[1]}`).to.equal("ddd");
+        expect(words[2], `Third word: ${words[2]}`).to.equal("aa");
+        console.log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
+      })
+    });
+
+    describe("Get repeated words from punctuation", () => {
+      it("should return repeated words array from sentence", () => {
+          
+          let input =` //wont won't won't`;
+              
+              const words = RepeatedWords(input);
+              expect(words.length).to.equal(2);
+              expect(words[0],`first word: ${words[0]}`).to.equal("won't");
+              expect(words[1],`second word: ${words[1]}`).to.equal("wont");
+              console.log(`repeated words are: ${words[0]}, ${words[1]}`)
+            })
+        });
+
+        describe("Get repeated words and ignore spaces and TieBreak", () => {
+          it("should return repeated words array from sentence and order by alphabets if both have same occurences", () => {
+              
+              let input =` //apple door book door apple`;
+                  
+                  const words = RepeatedWords(input);
+                  expect(words.length).to.equal(3);
+                  expect(words[0],`first word: ${words[0]}`).to.equal("apple");
+                  expect(words[1],`second word: ${words[1]}`).to.equal("door");
+                  expect(words[2],`third word: ${words[2]}`).to.equal("book");
+                  console.log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
+                })
+        });
