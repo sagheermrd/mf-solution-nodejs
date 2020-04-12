@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js",
-    "debug": "nodemon index.js --exec babel-node --debug",
-    "test": "mocha --compilers js:@babel/register"
+    "debug": "DEBUG=app:* nodemon index.js --exec babel-node --debug",
+    "test": "DEBUG=app:* mocha --compilers js:@babel/register"
   },
   "author": "",
   "license": "ISC",
@@ -21,8 +21,9 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/register": "^7.0.0",
     "babel-loader": "^8.1.0",
-    "nodemon": "^2.0.3",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "debug": "^4.1.1",
+    "mocha": "^5.2.0",
+    "nodemon": "^2.0.3"
   }
 }

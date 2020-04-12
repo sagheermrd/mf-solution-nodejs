@@ -1,5 +1,8 @@
 import { expect } from "chai"
 import { RepeatedWords }from "../src/utility"
+import debug from 'debug';
+
+const log  = debug('app:tests');
 
 describe("Can find duplicate words ", () => {
   describe("Empty array when input is null/empty/has no words", () => {
@@ -35,7 +38,7 @@ describe("Get repeated words from paragraph", () => {
     expect(words[0],`first word: ${words[0]}`).to.equal("a");
     expect(words[1],`second word: ${words[1]}`).to.equal("of");
     expect(words[2], `Third word: ${words[2]}`).to.equal("on");
-    console.log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
+    log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
   })
 })
 
@@ -49,11 +52,11 @@ describe("Get repeated words from sentence", () => {
         expect(words[0],`first word: ${words[0]}`).to.equal("e");
         expect(words[1],`second word: ${words[1]}`).to.equal("ddd");
         expect(words[2], `Third word: ${words[2]}`).to.equal("aa");
-        console.log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
+        log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
       })
-    });
+});
 
-    describe("Get repeated words from punctuation", () => {
+describe("Get repeated words from punctuation", () => {
       it("should return repeated words array from sentence", () => {
           
           let input =` //wont won't won't`;
@@ -62,11 +65,11 @@ describe("Get repeated words from sentence", () => {
               expect(words.length).to.equal(2);
               expect(words[0],`first word: ${words[0]}`).to.equal("won't");
               expect(words[1],`second word: ${words[1]}`).to.equal("wont");
-              console.log(`repeated words are: ${words[0]}, ${words[1]}`)
+              log(`repeated words are: ${words[0]}, ${words[1]}`)
             })
-        });
+});
 
-        describe("Get repeated words and ignore spaces and TieBreak", () => {
+describe("Get repeated words and ignore spaces and TieBreak", () => {
           it("should return repeated words array from sentence and order by alphabets if both have same occurences", () => {
               
               let input =` //apple door book door apple`;
@@ -76,6 +79,6 @@ describe("Get repeated words from sentence", () => {
                   expect(words[0],`first word: ${words[0]}`).to.equal("apple");
                   expect(words[1],`second word: ${words[1]}`).to.equal("door");
                   expect(words[2],`third word: ${words[2]}`).to.equal("book");
-                  console.log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
+                  log(`repeated words are: ${words[0]}, ${words[1]}, ${words[2]}`)
                 })
-        });
+});
