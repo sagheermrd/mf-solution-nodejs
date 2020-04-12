@@ -1,0 +1,28 @@
+{
+  "name": "mf_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js",
+    "debug": "nodemon index.js --exec babel-node --debug",
+    "test": "mocha --compilers js:@babel/register"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-classes": "^7.9.5",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.3",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
